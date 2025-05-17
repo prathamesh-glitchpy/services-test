@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: 'MuktaVaani';
+	src: url('./assets/fonts/MuktaVaaniBold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+  }
+  
