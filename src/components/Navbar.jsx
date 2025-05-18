@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faSignOutAlt, faChartPie, faChartLine, faReceipt, faBullseye, faGraduationCap, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../assets/images/Logo.png';
+import LogoWithoutText from '../assets/images/logo_without_text.png';
 
 const Navbar = () => {
   const [isFinancesDropdownOpen, setIsFinancesDropdownOpen] = useState(false);
@@ -10,12 +11,44 @@ const Navbar = () => {
   const [isFinancesHovered, setIsFinancesHovered] = useState(false);
   const [isProfileHovered, setIsProfileHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState('');
   
   const location = useLocation();
   const financesRef = useRef(null);
   const profileRef = useRef(null);
   const financesTimeoutRef = useRef(null);
   const profileTimeoutRef = useRef(null);
+  
+  // Finance pages mapping for display names
+  const financePages = {
+    '/portfolio-overview': 'Portfolio Overview',
+    '/your-investments': 'Your Investments',
+    '/expenses-tracking': 'Expenses Tracking',
+    '/financial-goals': 'Your Financial Goals',
+    '/financial-education': 'Financial Education'
+  };
+  
+  // Check if the current page is a finance page or account settings
+  const isFinancePage = Object.keys(financePages).includes(location.pathname);
+  const isAccountPage = location.pathname === '/account-settings';
+  const shouldShowPageName = isFinancePage || isAccountPage;
+  
+  // Update current page title when route changes
+  useEffect(() => {
+    if (isFinancePage) {
+      setCurrentPage(financePages[location.pathname]);
+    } else if (location.pathname === '/') {
+      setCurrentPage('Home');
+    } else if (location.pathname === '/dashboard') {
+      setCurrentPage('Dashboard');
+    } else if (location.pathname === '/account-settings') {
+      setCurrentPage('Account Settings');
+    } else if (location.pathname === '/logout') {
+      setCurrentPage('Log Out');
+    } else {
+      setCurrentPage('');
+    }
+  }, [location.pathname, isFinancePage]);
   
   // Clear timeouts on unmount
   useEffect(() => {
@@ -128,15 +161,32 @@ const Navbar = () => {
         className="w-[95%] rounded-4xl bg-[#170D1C]/50 px-6 py-4 relative flex items-center"
         style={{ backdropFilter: 'blur(10px)' }}
       >
-        {/* Logo */}
-        <div className="flex items-center">
+        {/* Logo - Desktop */}
+        <div className="hidden md:flex items-center">
           <Link to="/">
             <img src={Logo} alt="Company Logo" className="h-10 mr-4" />
           </Link>
         </div>
 
-        {/* Mobile Menu Button - with square background */}
-        <div className="md:hidden ml-auto z-[100]">
+        {/* Mobile Navbar Layout */}
+        <div className="md:hidden flex items-center justify-between w-full">
+          {/* Logo - Mobile */}
+          <div className="flex items-center">
+            <Link to="/">
+              <img src={LogoWithoutText} alt="Company Logo" className="h-8" />
+            </Link>
+          </div>
+          
+          {/* Current page title for mobile - Centered */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+            {currentPage && (
+              <h2 className="text-white text-base font-medium">
+                {currentPage}
+              </h2>
+            )}
+          </div>
+          
+          {/* Mobile Menu Button */}
           <button 
             className="text-white focus:outline-none p-2 relative z-[100] bg-gray-700/70 rounded"
             onClick={toggleMobileMenu}
@@ -190,42 +240,51 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Profile Icon with Dropdown - visible on desktop */}
-        <div 
-          ref={profileRef}
-          className="ml-auto hidden md:block relative" 
-          onMouseEnter={handleProfileMouseEnter}
-          onMouseLeave={handleProfileMouseLeave}
-        >
-          <button 
-            className="text-white rounded-full bg-gray-700 p-2 hover:bg-gray-600 transition-colors"
-            onClick={handleProfileClick}
+        <div className="hidden md:flex items-center ml-auto space-x-8">
+          {/* Active Page Indicator - desktop only */}
+          {shouldShowPageName && (
+            <div className="text-white font-medium">
+              <span className="text-md">{currentPage}</span>
+            </div>
+          )}
+
+          {/* Profile Icon with Dropdown - visible on desktop */}
+          <div 
+            ref={profileRef}
+            className="relative"
+            onMouseEnter={handleProfileMouseEnter}
+            onMouseLeave={handleProfileMouseLeave}
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-6 w-6" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
+            <button 
+              className="text-white rounded-full bg-gray-700 p-2 hover:bg-gray-600 transition-colors"
+              onClick={handleProfileClick}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          </button>
-          
-          <div className={`absolute right-0 top-full mt-1 w-48 rounded-2xl shadow-lg bg-[#170D1C]/80 z-50 transition-all duration-300 ease-in-out 
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-6 w-6" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </button>
+            
+            <div className={`absolute right-0 top-full mt-1 w-48 rounded-2xl shadow-lg bg-[#170D1C]/80 z-50 transition-all duration-300 ease-in-out 
                           origin-top ${showProfileDropdown ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
-            <div className="py-0.5">
-              <DropdownItem 
-                to="/account-settings" 
-                text="Account Settings" 
-                icon={<FontAwesomeIcon icon={faCog} className="mr-2" />}
-              />
-              <DropdownItem 
-                to="/logout" 
-                text="Log Out" 
-                icon={<FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />}
-                className='hover:bg-red-500'
-              />
+              <div className="py-0.5">
+                <DropdownItem 
+                  to="/account-settings" 
+                  text="Account Settings" 
+                  icon={<FontAwesomeIcon icon={faCog} className="mr-2" />}
+                />
+                <DropdownItem 
+                  to="/logout" 
+                  text="Log Out" 
+                  icon={<FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />}
+                  className='hover:bg-red-500'
+                />
+              </div>
             </div>
           </div>
         </div>

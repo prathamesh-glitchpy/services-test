@@ -6,11 +6,12 @@ const Card = ({
   height = "h-auto",
   padding = "p-3 sm:p-4",
   rounded = "rounded-[15px] sm:rounded-[25px]",
-  
+  onClick
 }) => {
   return (
     <div 
-      className={`relative z-0 ${bgColor} bg-cover bg-center ${width} ${height} ${padding} ${rounded} ${className}`}
+      className={`relative z-0 ${bgColor} bg-cover bg-center ${width} ${height} ${padding} ${rounded} ${className} ${onClick ? 'cursor-pointer' : ''}`}
+      onClick={onClick}
     >
       {children}
     </div>

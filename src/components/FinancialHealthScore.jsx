@@ -105,7 +105,7 @@ const FinancialHealthScore = ({ data }) => {
                   strokeLinecap: 'round',
                   textSize: '20px',
                   pathTransitionDuration: 1.5,
-                  pathColor: getBarColor(progress),
+                  pathColor: '#6FFFE9',
                   textColor: '#ffffff',
                   trailColor: '#374151',
                 })}

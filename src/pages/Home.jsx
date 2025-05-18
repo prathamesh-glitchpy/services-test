@@ -14,7 +14,6 @@ const Home = () => {
     <div>
       <Welcome />
       <Trending blogPosts={blogPosts}/>
-      <div className='sm:h-0 h-6'></div>
     </div>
   );
 };

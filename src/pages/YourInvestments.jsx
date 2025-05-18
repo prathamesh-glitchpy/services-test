@@ -86,7 +86,6 @@ const YourInvestments = () => {
   return (
     <>
 	  <InvementsDetails investmentData={investmentData} tabOptions={tabOptions} />
-	  <div className="h-6"></div>
 	</>
   );
 };
