@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Button from '../Button';
+import Button from '../common/Button';
 import ConfirmDialog from '../modals/ConfirmDialog';
-import useToast from '../ToastSystem';
+import useToast from '../common/ToastSystem';
 
 const BillingSettings = ({ billingData = {} }) => {
   const toast = useToast();

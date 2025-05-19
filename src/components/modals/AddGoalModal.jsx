@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
-import Button from '../Button';
+import Button from '../common/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faHome, faGraduationCap, faUmbrella, faCar, faPlane, 

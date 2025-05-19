@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../components/Card';
+import Card from '../components/common/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faTimes, faPlus, faUniversity, faEye } from '@fortawesome/free-solid-svg-icons';
 import { faCcVisa, faCcMastercard, faCcAmex, faCcDiscover } from '@fortawesome/free-brands-svg-icons';
-import Button from '../Button';
+import Button from '../common/Button';
 import ConfirmDialog from '../modals/ConfirmDialog';
-import useToast from '../ToastSystem';
+import useToast from '../common/ToastSystem';
 
 const PaymentSettings = ({ paymentMethodsData = [] }) => {
   // Get toast notification functions

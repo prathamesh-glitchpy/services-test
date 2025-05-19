@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Button from './Button';
+import Button from './common/Button';
 import GoalCard from './GoalCard';
 import GoalDetailsModal from './modals/GoalDetailsModal';
 import AddGoalModal from './modals/AddGoalModal';
 import ConfirmDialog from './modals/ConfirmDialog';
-import useToast from './ToastSystem';
+import useToast from './common/ToastSystem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Goals = ({ initialGoals = [] }) => {

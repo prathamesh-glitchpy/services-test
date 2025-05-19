@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Background from './components/Background';
-import Navbar from './components/Navbar';
-import Layout from './components/Layout';
-import { ToastProvider } from './components/ToastSystem';
+import Background from './components/common/Background';
+import Navbar from './components/common/Navbar';
+import Layout from './components/common/Layout';
+import { ToastProvider } from './components/common/ToastSystem';
+import ScrollToTop from './components/common/ScrollToTop';
 
 // Import all page components
 import Home from './pages/Home';
@@ -19,6 +20,7 @@ import Logout from './pages/Logout';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <ToastProvider>
         <div className="font-[MuktaVaani]">
           <Background>

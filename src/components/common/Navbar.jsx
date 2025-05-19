@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faSignOutAlt, faChartPie, faChartLine, faReceipt, faBullseye, faGraduationCap, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../assets/images/Logo.png';
-import LogoWithoutText from '../assets/images/logo_without_text.png';
+import Logo from '../../assets/images/Logo.png';
+import LogoWithoutText from '../../assets/images/logo_without_text.png';
 
 const Navbar = () => {
   const [isFinancesDropdownOpen, setIsFinancesDropdownOpen] = useState(false);

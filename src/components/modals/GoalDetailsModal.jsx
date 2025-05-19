@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
-import Button from '../Button';
-import useToast from '../ToastSystem';
+import Button from '../common/Button';
+import useToast from '../common/ToastSystem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 

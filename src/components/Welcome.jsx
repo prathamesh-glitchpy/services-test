@@ -1,6 +1,6 @@
 import React from 'react'
-import Card from '../components/Card';
-import Button from '../components/Button';
+import Card from '../components/common/Card';
+import Button from './common/Button';
 const user = "John Doe";
 
 const Welcome = () => {

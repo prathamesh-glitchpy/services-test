@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './Card';
-import Button from './Button';
+import Card from './common/Card';
+import Button from './common/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 

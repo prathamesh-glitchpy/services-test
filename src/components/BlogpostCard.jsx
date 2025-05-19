@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './Card';
+import Card from './common/Card';
 
 const BlogpostCard = ({ title, backgroundImage, backgroundColor = '#C7C7C7', height = 'h-[200px] sm:h-[240px] md:h-[274px]' }) => {
   const cardStyle = backgroundImage 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Toggle from '../Toggle';
-import Button from '../Button';
-import useToast from '../ToastSystem';
+import Toggle from '../common/Toggle';
+import Button from '../common/Button';
+import useToast from '../common/ToastSystem';
 
 const NotificationSettings = ({ notificationData = {} }) => {
   const toast = useToast();
