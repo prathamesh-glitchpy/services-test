@@ -1,4 +1,4 @@
-import LaptopDisplay from "/src/components/LandingComponents/LaptopDisplay";
+import LaptopDisplay from "/src/components/landingComponents/LaptopDisplay";
 
 // Import all feature icons
 import IconUser from "/src/assets/images/FeaturesIcons/user-friendly.svg";

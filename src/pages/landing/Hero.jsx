@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '/src/components/common/Button';
-import PrototypeDisplay from '/src/components/LandingComponents/PrototypeDisplay';
+import PrototypeDisplay from '/src/components/landingComponents/PrototypeDisplay';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {

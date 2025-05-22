@@ -1,5 +1,5 @@
 import React from 'react';
-import BenefitsDisplay from '/src/components/LandingComponents/BenefitsDisplay';
+import BenefitsDisplay from '/src/components/landingComponents/BenefitsDisplay';
 
 const Benefits = () => {
   return (
