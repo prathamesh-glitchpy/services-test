@@ -1,5 +1,5 @@
 import React from 'react'
-import Prototype from '/src/assets/images/DisplayImages/Prototype.png'
+import Prototype from '/src/assets/images/DisplayImages/Prototype.webp'
 
 const PrototypeDisplay = () => {
   return (

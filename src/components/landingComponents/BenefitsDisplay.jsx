@@ -7,7 +7,7 @@ import IconBook from '/src/assets/images/BenefitsIcons/book.svg';
 import IconCreditCard from '/src/assets/images/BenefitsIcons/creditcard.svg';
 import IconSpeedometer from '/src/assets/images/BenefitsIcons/speedometer.svg';
 import IconPie from '/src/assets/images/BenefitsIcons/PieChart.svg';
-import UserImage from '/src/assets/images/DisplayImages/UserImage.png';
+import UserImage from '/src/assets/images/DisplayImages/UserImage.webp';
 
 // Desktop icon configuration
 const desktopIconArray = [

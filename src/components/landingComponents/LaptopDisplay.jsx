@@ -1,6 +1,6 @@
-import laptopImage from '/src/assets/images/DisplayImages/Mock_laptop.png';
-import ellipseLarge from '/src/assets/images/DisplayImages/Ellipse_large.png';
-import ellipseSmall from '/src/assets/images/DisplayImages/Ellipse_small.png';
+import laptopImage from '/src/assets/images/DisplayImages/Mock_laptop.webp';
+import ellipseLarge from '/src/assets/images/DisplayImages/Ellipse_large.webp';
+import ellipseSmall from '/src/assets/images/DisplayImages/Ellipse_small.webp';
 
 const LaptopDisplay = () => {
   return (

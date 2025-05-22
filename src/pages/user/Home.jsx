@@ -3,9 +3,9 @@ import Welcome from '/src/components/userComponents/Welcome';
 import Trending from '/src/components/userComponents/Trending';
 
 // Import images
-import personalFinanceImg from '/src/assets/images/BlogImages/personalFinance.jpg';
-import investmentStrategiesImg from '/src/assets/images/BlogImages/invertmentStrategies.jpg';
-import cryptocurrencyImg from '/src/assets/images/BlogImages/cryptocurrency.jpg';
+import personalFinanceImg from '/src/assets/images/BlogImages/personalFinance.webp';
+import investmentStrategiesImg from '/src/assets/images/BlogImages/invertmentStrategies.webp';
+import cryptocurrencyImg from '/src/assets/images/BlogImages/cryptocurrency.webp';
 
 // Sample blog posts data
 const blogPosts = [
