@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 import Button from '../common/Button';
 import useToast from '../common/ToastSystem';
@@ -10,6 +10,14 @@ const GoalDetailsModal = ({ isOpen, onClose, goal, onUpdateGoal, onDeleteGoal })
   const [isEditing, setIsEditing] = useState(false);
   const [editedGoal, setEditedGoal] = useState(null);
 
+  // Reset editing state when modal opens or closes
+  useEffect(() => {
+    if (!isOpen) {
+      setIsEditing(false);
+      setEditedGoal(null);
+    }
+  }, [isOpen]);
+
   if (!goal) return null;
 
   const handleEditClick = () => {
@@ -20,6 +28,13 @@ const GoalDetailsModal = ({ isOpen, onClose, goal, onUpdateGoal, onDeleteGoal })
   const handleCancelEdit = () => {
     setIsEditing(false);
     setEditedGoal(null);
+  };
+
+  // Custom onClose handler to ensure state is reset
+  const handleClose = () => {
+    setIsEditing(false);
+    setEditedGoal(null);
+    onClose();
   };
 
   const handleInputChange = (e) => {
@@ -55,7 +70,7 @@ const GoalDetailsModal = ({ isOpen, onClose, goal, onUpdateGoal, onDeleteGoal })
   return (
     <Modal 
       isOpen={isOpen} 
-      onClose={onClose}
+      onClose={handleClose}
       maxWidth="max-w-lg"
     >
       <div className="flex items-center justify-between mb-4">

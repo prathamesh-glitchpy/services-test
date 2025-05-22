@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 
 // Custom scrollbar styles
 const scrollbarStyles = `
@@ -34,6 +34,7 @@ const Modal = ({
 }) => {
   const [animation, setAnimation] = useState(false);
   const [backdropAnimation, setBackdropAnimation] = useState(false);
+  const modalContentRef = useRef(null);
 
   const handleClose = useCallback(() => {
     setBackdropAnimation(false);
@@ -41,6 +42,17 @@ const Modal = ({
     // Delay actual closing to allow animation to complete
     setTimeout(() => onClose(), 300);
   }, [onClose]);
+
+  // Handle click outside modal
+  const handleBackdropClick = useCallback((event) => {
+    // Only close if clicking the backdrop, not the modal content
+    if (
+      modalContentRef.current && 
+      !modalContentRef.current.contains(event.target)
+    ) {
+      handleClose();
+    }
+  }, [handleClose]);
 
   useEffect(() => {
     if (isOpen) {
@@ -92,8 +104,10 @@ const Modal = ({
         className={`fixed inset-0 flex items-center justify-center z-50 p-4 transition-all duration-300 ease-out ${
           backdropAnimation ? 'backdrop-blur-md bg-black/40' : 'backdrop-blur-none bg-black/0'
         }`}
+        onClick={handleBackdropClick}
       >
         <div 
+          ref={modalContentRef}
           className={`bg-gray-900/90 rounded-xl ${maxWidth} w-full relative border border-gray-700 shadow-xl transition-all duration-300 ease-out overflow-hidden ${
             animation ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}

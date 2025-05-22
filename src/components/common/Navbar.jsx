@@ -37,7 +37,7 @@ const Navbar = () => {
   useEffect(() => {
     if (isFinancePage) {
       setCurrentPage(financePages[location.pathname]);
-    } else if (location.pathname === '/') {
+    } else if (location.pathname === '/home') {
       setCurrentPage('Home');
     } else if (location.pathname === '/dashboard') {
       setCurrentPage('Dashboard');
@@ -201,7 +201,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-8">
-          <NavLink to="/" text="Home" />
+          <NavLink to="/home" text="Home" />
           <NavLink to="/dashboard" text="Dashboard" />
           
           {/* Finances Dropdown Menu */}
@@ -305,7 +305,7 @@ const Navbar = () => {
         
         <div className="flex flex-col items-center justify-center h-full space-y-6 p-6">
           <Link 
-            to="/" 
+            to="/home" 
             className={`text-white text-xl font-medium transform transition-all duration-500 ease-out ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
             }`} 

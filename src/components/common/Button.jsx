@@ -5,6 +5,7 @@ const Button = ({
   onClick, 
   className, 
   icon, 
+  iconPosition = 'before', // 'before' or 'after'
   height, 
   width, 
   bgColor = '#6FFFE9', 
@@ -26,8 +27,9 @@ const Button = ({
       onMouseOver={(e) => e.currentTarget.style.backgroundColor = hoverBgColor}
       onMouseOut={(e) => e.currentTarget.style.backgroundColor = bgColor}
     >
-      {icon && <span className="inline-block">{icon}</span>}
+      {icon && iconPosition === 'before' && <span className="inline-block">{icon}</span>}
       {text}
+      {icon && iconPosition === 'after' && <span className="inline-block">{icon}</span>}
     </button>
   );
 };
